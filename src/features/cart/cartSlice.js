@@ -9,20 +9,20 @@ const initialState = {
   isLoading: false,
 };
 
-const url = "https://course-api.com/react-useReducer-cart-project";
+// const url = "https://course-api.com/react-useReducer-cart-project";
 
-export const getCartItems = createAsyncThunk(
-  "cart/getCartItems",
-  async (_, thunkAPI) => {
-    try {
-      const res = await axios(url);
-      console.log(res.data);
-      return res.data;
-    } catch (error) {
-      return thunkAPI.rejectWithValue("some error messages");
-    }
-  }
-);
+// export const getCartItems = createAsyncThunk(
+//   "cart/getCartItems",
+//   async (_, thunkAPI) => {
+//     try {
+//       const res = await axios(url);
+//       console.log(res.data);
+//       return res.data;
+//     } catch (error) {
+//       return thunkAPI.rejectWithValue("some error messages");
+//     }
+//   }
+// );
 
 const cartSlice = createSlice({
   name: "cart",
@@ -55,18 +55,18 @@ const cartSlice = createSlice({
       state.total = total;
     },
   },
-  extraReducers: {
-    [getCartItems.pending]: (state) => {
-      state.isLoading = true;
-    },
-    [getCartItems.fulfilled]: (state, { payload }) => {
-      state.isLoading = false;
-      state.cartItems = payload;
-    },
-    [getCartItems.rejected]: (state, { payload }) => {
-      state.isLoading = true;
-    },
-  },
+  // extraReducers: {
+  //   [getCartItems.pending]: (state) => {
+  //     state.isLoading = true;
+  //   },
+  //   [getCartItems.fulfilled]: (state, { payload }) => {
+  //     state.isLoading = false;
+  //     state.cartItems = payload;
+  //   },
+  //   [getCartItems.rejected]: (state, { payload }) => {
+  //     state.isLoading = true;
+  //   },
+  // },
 });
 
 export const {

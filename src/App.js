@@ -7,7 +7,7 @@ import Dialog from "./components/Dialog";
 import { Row, Col } from "react-bootstrap";
 
 const App = () => {
-  const { cartItems, isLoading } = useSelector((store) => store.cart);
+  const { cartItems } = useSelector((store) => store.cart);
   const { isOpen } = useSelector((store) => store.modal);
   const dispatch = useDispatch();
 
@@ -15,9 +15,9 @@ const App = () => {
     dispatch(calculateTotals());
   }, [cartItems, dispatch]);
 
-  useEffect(() => {
-    dispatch(getCartItems());
-  }, [cartItems]);
+  // useEffect(() => {
+  //   dispatch(getCartItems());
+  // }, [cartItems]);
 
   // if (isLoading) {
   //   return (
